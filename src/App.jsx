@@ -2,6 +2,7 @@ import "./styles.css";
 
 import { CheckRender } from "./components/CheckRender/CheckRender";
 import { StylingPractice } from "./components/StylingPractice/StylingPractice";
+import { RoutingBasic } from "./components/RoutingBasic/RoutingBasic";
 
 const hrStyle = {
   width: "100%",
@@ -19,6 +20,8 @@ export default function App() {
       <CheckRender />
       <hr style={hrStyle} />
       <StylingPractice />
+      <hr style={hrStyle} />
+      <RoutingBasic />
     </div>
   );
 }
