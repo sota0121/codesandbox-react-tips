@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./CheckRender.css";
 
 const style = {
@@ -10,13 +10,16 @@ const style = {
   backgroundColor: "khaki"
 };
 
-export const ChildArea = (props) => {
+// memo
+// if though parent re-rendering, this component isn't rendered
+// this component is rendered only when props / state is updated.
+export const ChildArea = memo((props) => {
   const { open } = props;
   console.log("ChildArea is rendered !");
 
-  const heavyData = [...Array(2000).keys()];
+  const heavyData = [...Array(200).keys()];
   heavyData.forEach(() => {
     console.log("...");
   });
   return <>{open ? <p style={style}>Child Area (Heavy Component)</p> : null}</>;
-};
+});
