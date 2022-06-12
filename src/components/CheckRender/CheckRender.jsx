@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import "./CheckRender.css";
 
 import { ChildArea } from "./ChildArea";
@@ -38,6 +38,18 @@ export const CheckRender = (props) => {
     setOpen(false);
   }, [setOpen]); // watch setOpen function
   // ======================================
+
+  // NOTE:
+  // memorize variables by useMemo
+  // useMemo is effective when the variables are calcurated
+  // with heavy computation.
+  const temp = useMemo(() => {
+    // heavy computation
+    const x = [...Array(500).keys()];
+    const ret = x.reduce((prev, cur) => prev + cur, 0);
+    return ret;
+  }, []); // watch no vars means call this only while initializing
+  console.log(temp);
 
   return (
     <div>
