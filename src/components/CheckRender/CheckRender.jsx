@@ -24,6 +24,9 @@ export const CheckRender = (props) => {
     console.log("(onClickOpen) openRef is ", openRef.current);
   };
 
+  // NOTE:
+  // Create new this arrow function each time the screen is rendered
+  // So, ChildArea.props.onClickClose is updated each time onChange is called
   const onClickClose = () => {
     setOpen(false);
   };
