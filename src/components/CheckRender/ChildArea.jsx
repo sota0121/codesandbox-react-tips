@@ -12,5 +12,11 @@ const style = {
 
 export const ChildArea = (props) => {
   const { open } = props;
-  return <>{open ? <p style={style}>Child Area</p> : null}</>;
+  console.log("ChildArea is rendered !");
+
+  const heavyData = [...Array(2000).keys()];
+  heavyData.forEach(() => {
+    console.log("...");
+  });
+  return <>{open ? <p style={style}>Child Area (Heavy Component)</p> : null}</>;
 };
