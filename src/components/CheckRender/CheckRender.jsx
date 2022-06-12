@@ -24,6 +24,10 @@ export const CheckRender = (props) => {
     console.log("(onClickOpen) openRef is ", openRef.current);
   };
 
+  const onClickClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div>
       <h2>CheckRender</h2>
@@ -31,7 +35,7 @@ export const CheckRender = (props) => {
       <br />
       <br />
       <button onClick={onClickOpen}>Toggle Child Area</button>
-      <ChildArea open={open} />
+      <ChildArea open={open} onClickClose={onClickClose} />
     </div>
   );
 };

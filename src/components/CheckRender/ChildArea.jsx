@@ -14,12 +14,21 @@ const style = {
 // if though parent re-rendering, this component isn't rendered
 // this component is rendered only when props / state is updated.
 export const ChildArea = memo((props) => {
-  const { open } = props;
+  const { open, onClickClose } = props;
   console.log("ChildArea is rendered !");
 
   const heavyData = [...Array(200).keys()];
   heavyData.forEach(() => {
     console.log("...");
   });
-  return <>{open ? <p style={style}>Child Area (Heavy Component)</p> : null}</>;
+  return (
+    <>
+      {open ? (
+        <div style={style}>
+          <p>Child Area (Heavy Component)</p>
+          <button onClick={onClickClose}>Close ChildArea</button>
+        </div>
+      ) : null}
+    </>
+  );
 });
