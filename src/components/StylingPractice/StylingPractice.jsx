@@ -4,6 +4,7 @@ import { InlineStyle } from "./InlineStyle";
 import { CssModules } from "./CssModules";
 import { StyledJsx } from "./StyledJsx";
 import { StyledComponents } from "./StyledComponents";
+import { Emotion } from "./Emotion";
 
 export const StylingPractice = (props) => {
   return (
@@ -13,6 +14,7 @@ export const StylingPractice = (props) => {
       <CssModules />
       <StyledJsx />
       <StyledComponents />
+      <Emotion />
     </>
   );
 };
