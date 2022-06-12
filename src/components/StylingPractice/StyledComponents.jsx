@@ -42,5 +42,6 @@ const StyleButton = styled.button`
     background-color: #331155;
     color: #dddddd;
     font-weight: bold;
+    cursor: pointer;
   }
 `;
