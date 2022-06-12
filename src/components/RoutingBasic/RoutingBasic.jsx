@@ -33,7 +33,7 @@ export const RoutingBasic = (props) => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="page1" element={<Page1 />} />
-          <Route path="/page2" element={<Page2 />} />
+          <Route path="page2" element={<Page2 />} />
         </Routes>
       </BrowserRouter>
     </>
