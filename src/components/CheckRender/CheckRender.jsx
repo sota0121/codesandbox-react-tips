@@ -19,7 +19,7 @@ export const CheckRender = (props) => {
 
   const onClickOpen = () => {
     setOpen(!open);
-    // openRef.current = !openRef;
+    openRef.current = !openRef;
     console.log("(onClickOpen) open is ", open);
     console.log("(onClickOpen) openRef is ", openRef.current);
   };
