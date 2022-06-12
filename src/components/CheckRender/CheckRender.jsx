@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import "./CheckRender.css";
 
 import { ChildArea } from "./ChildArea";
@@ -24,12 +24,20 @@ export const CheckRender = (props) => {
     console.log("(onClickOpen) openRef is ", openRef.current);
   };
 
+  // ======================================
   // NOTE:
   // Create new this arrow function each time the screen is rendered
   // So, ChildArea.props.onClickClose is updated each time onChange is called
-  const onClickClose = () => {
+  // -- Bad Code is following --
+  // const onClickClose = () => {
+  //   setOpen(false);
+  // };
+  // -- Good Code is following --
+  // memorize function that gived to child component
+  const onClickClose = useCallback(() => {
     setOpen(false);
-  };
+  }, [setOpen]); // watch setOpen function
+  // ======================================
 
   return (
     <div>

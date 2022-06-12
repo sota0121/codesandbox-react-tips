@@ -10,7 +10,8 @@ const style = {
   backgroundColor: "khaki"
 };
 
-// memo
+// NOTE:
+// memorize component by `memo`
 // if though parent re-rendering, this component isn't rendered
 // this component is rendered only when props / state is updated.
 export const ChildArea = memo((props) => {
