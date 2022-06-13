@@ -5,6 +5,7 @@ import { Page1 } from "../Page1";
 import { Page2 } from "../Page2";
 import { Page1a } from "../Page1a";
 import { Page1b } from "../Page1b";
+import { Page2p } from "../Page2p";
 import { NotFound } from "../NotFound";
 
 // See for useRoutes
@@ -30,7 +31,8 @@ export const Router = (props) => {
     },
     {
       path: "page2",
-      element: <Page2 />
+      element: <Page2 />,
+      children: [{ path: ":id", element: <Page2p /> }]
     },
     { path: "*", element: <NotFound /> }
   ]);
