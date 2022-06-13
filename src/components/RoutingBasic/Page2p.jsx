@@ -10,14 +10,19 @@ export const Page2p = (props) => {
   // -> search: String <-- QueryParam
   // ... etc
   // ----------------
-  const { search } = useLocation();
+  const location = useLocation();
+  const { search, state } = location;
   const query = new URLSearchParams(search);
+  const nameParam = query.get("name");
+  console.log("location: ", location);
+  console.log("state: ", state);
 
   return (
     <>
       <h4>Page2p</h4>
-      <p>URL Paramerter is {id}</p>
-      <p>Query Parameter is {query.get("name")}</p>
+      {id !== "" ? <p>URL Paramerter is {id}</p> : null}
+      {nameParam !== "" ? <p>Query Parameter is {nameParam}</p> : null}
+      {state !== "" ? <p>State is {state}</p> : null}
     </>
   );
 };

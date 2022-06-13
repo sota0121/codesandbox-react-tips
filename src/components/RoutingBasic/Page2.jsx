@@ -5,6 +5,13 @@ export const Page2 = (props) => {
   // unused
   const urlParamRef = useRef("");
 
+  const [pageState, setPageState] = useState("");
+  const handleChangePageState = (e) => {
+    const newVal = e.target.value;
+    setPageState(newVal);
+  };
+  console.log(pageState);
+
   const [urlParam, setUrlParam] = useState("");
   const handleChangeUrl = (e) => {
     const newText = e.target.value;
@@ -20,6 +27,16 @@ export const Page2 = (props) => {
   return (
     <>
       <h2>Page2</h2>
+      <Link to={{ pathname: `/page2/${urlParam}`, state: pageState }}>
+        <button>Go to URL Param page (with pageState)</button>
+      </Link>
+      <br />
+      <input
+        style={{ margin: "6px" }}
+        onChange={handleChangePageState}
+        placeholder="state for giving to next page"
+      />
+      <br />
       <Link to={`/page2/${urlParam}`}>
         <button>Go to URL Param page</button>
       </Link>
@@ -31,7 +48,12 @@ export const Page2 = (props) => {
         ref={urlParamRef}
       />
       <br />
-      <Link to={`/page2/${urlParam}?name=${queryParam}`}>
+      <Link
+        to={{
+          pathname: `/page2/${urlParam}?name=${queryParam}`,
+          state: pageState
+        }}
+      >
         <button>Go to Query Param page</button>
       </Link>
       <br />
